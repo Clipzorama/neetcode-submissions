@@ -34,6 +34,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "lemonade-change": {
+    "category": "Greedy",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Lemonade Change"
+  },
   "longest-consecutive-sequence": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",

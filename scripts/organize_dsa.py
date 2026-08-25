@@ -188,6 +188,11 @@ def existing_locations(destination: Path, slug: str) -> list[Path]:
     return sorted(locations)
 
 
+def is_classified_location(destination: Path, location: Path) -> bool:
+    relative_parts = location.relative_to(destination).parts
+    return len(relative_parts) == 3 and relative_parts[0] in DIFFICULTIES
+
+
 def learn_existing_metadata(
     source: Path, destination: Path, cache: dict[str, dict[str, str]]
 ) -> int:
@@ -195,20 +200,20 @@ def learn_existing_metadata(
     for problem_path in sorted(path for path in source.iterdir() if path.is_dir()):
         slug = problem_path.name
         locations = existing_locations(destination, slug)
-        if len(locations) > 1:
-            rendered = ", ".join(str(path.relative_to(destination)) for path in locations)
+        classified = [
+            location
+            for location in locations
+            if is_classified_location(destination, location)
+        ]
+        if len(classified) > 1:
+            rendered = ", ".join(
+                str(path.relative_to(destination)) for path in classified
+            )
             raise OrganizerError(f"{slug!r} exists in multiple organized locations: {rendered}")
-        if not locations:
+        if not classified:
             continue
 
-        location = locations[0]
-        relative_parts = location.relative_to(destination).parts
-        if len(relative_parts) != 3 or relative_parts[0] not in DIFFICULTIES:
-            raise OrganizerError(
-                f"{slug!r} already exists at unsupported location "
-                f"{location.relative_to(destination)}. Move it to a valid "
-                "<Difficulty>/<Category>/<slug> path before organizing again."
-            )
+        location = classified[0]
         discovered = {
             "difficulty": location.parent.parent.name,
             "category": location.parent.name,
@@ -379,6 +384,42 @@ def files_to_copy(source_problem: Path, target_problem: Path) -> list[tuple[Path
     return copies
 
 
+def validate_legacy_migrations(legacy_locations: list[Path], target: Path) -> None:
+    files_by_relative_path: dict[Path, Path] = {}
+    if target.is_dir():
+        for target_file in (path for path in target.rglob("*") if path.is_file()):
+            files_by_relative_path[target_file.relative_to(target)] = target_file
+
+    for legacy in legacy_locations:
+        for legacy_file in (path for path in legacy.rglob("*") if path.is_file()):
+            relative = legacy_file.relative_to(legacy)
+            existing = files_by_relative_path.get(relative)
+            if existing is not None and not filecmp.cmp(
+                legacy_file, existing, shallow=False
+            ):
+                raise OrganizerError(
+                    f"Cannot migrate {legacy}: {relative} conflicts with {existing}. "
+                    "No files were changed."
+                )
+            files_by_relative_path[relative] = legacy_file
+
+
+def migrate_legacy_locations(
+    legacy_locations: list[Path], target: Path, destination: Path
+) -> None:
+    target.mkdir(parents=True, exist_ok=True)
+    for legacy in legacy_locations:
+        for legacy_file in (path for path in legacy.rglob("*") if path.is_file()):
+            target_file = target / legacy_file.relative_to(legacy)
+            if not target_file.exists():
+                target_file.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(legacy_file, target_file)
+        shutil.rmtree(legacy)
+        parent = legacy.parent
+        if parent != destination and parent.is_dir() and not any(parent.iterdir()):
+            parent.rmdir()
+
+
 def display_path(path: Path) -> Path:
     try:
         return path.relative_to(REPOSITORY_ROOT)
@@ -410,32 +451,60 @@ def organize(
             print(f"Discovering metadata for {slug}...")
             cache[slug] = discover_metadata(active_session, slug, by_slug, by_title)
 
+    migration_plan: list[tuple[list[Path], Path, str]] = []
     copy_plan: list[tuple[Path, Path, str]] = []
     for problem_path in problems:
         slug = problem_path.name
         metadata = cache[slug]
         target = destination / metadata["difficulty"] / metadata["category"] / slug
         locations = existing_locations(destination, slug)
-        unexpected = [location for location in locations if location != target]
-        if unexpected:
-            rendered = ", ".join(str(path.relative_to(destination)) for path in unexpected)
+        classified_elsewhere = [
+            location
+            for location in locations
+            if location != target and is_classified_location(destination, location)
+        ]
+        if classified_elsewhere:
+            rendered = ", ".join(
+                str(path.relative_to(destination)) for path in classified_elsewhere
+            )
             raise OrganizerError(
                 f"Refusing to duplicate {slug!r}: it already exists at {rendered}, "
                 f"but metadata points to {target.relative_to(destination)}."
             )
+        legacy_locations = [
+            location
+            for location in locations
+            if not is_classified_location(destination, location)
+        ]
+        if legacy_locations:
+            validate_legacy_migrations(legacy_locations, target)
+            migration_plan.append((legacy_locations, target, slug))
         for source_file, target_file in files_to_copy(problem_path, target):
             copy_plan.append((source_file, target_file, slug))
 
     if dry_run:
         print(f"Dry run: {learned + len(unknown)} metadata entrie(s) would be cached.")
-        if not copy_plan:
+        if not migration_plan and not copy_plan:
             print("Dry run: organized submissions are already synchronized.")
+        for legacy_locations, target, _ in migration_plan:
+            for legacy in legacy_locations:
+                print(
+                    f"Would migrate {display_path(legacy)} -> "
+                    f"{display_path(target)}"
+                )
         for source_file, target_file, _ in copy_plan:
             print(
                 f"Would copy {display_path(source_file)} -> "
                 f"{display_path(target_file)}"
             )
         return len(copy_plan)
+
+    for legacy_locations, target, slug in migration_plan:
+        migrate_legacy_locations(legacy_locations, target, destination)
+        print(
+            f"Migrated {slug} -> "
+            f"{target.relative_to(destination).parent}"
+        )
 
     for source_file, target_file, slug in copy_plan:
         target_file.parent.mkdir(parents=True, exist_ok=True)

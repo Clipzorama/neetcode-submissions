@@ -159,19 +159,76 @@ class OrganizerTests(unittest.TestCase):
             self.assertFalse(cache_file.exists())
             self.assertFalse(destination.exists())
 
-    def test_legacy_uncategorized_location_stops_before_duplication(self):
+    def test_legacy_uncategorized_location_is_migrated_without_data_loss(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             source = root / "source"
             destination = root / "organized"
             cache_file = root / "metadata.json"
-            (source / "new-problem").mkdir(parents=True)
-            (destination / "Uncategorized" / "new-problem").mkdir(parents=True)
+            source_problem = source / "new-problem"
+            source_problem.mkdir(parents=True)
+            (source_problem / "submission-0.py").write_text("pass\n", encoding="utf-8")
+            legacy = destination / "Uncategorized" / "new-problem"
+            legacy.mkdir(parents=True)
+            (legacy / "submission-0.py").write_text("pass\n", encoding="utf-8")
+            (legacy / "legacy-only.py").write_text("old\n", encoding="utf-8")
+            cache_file.write_text(
+                json.dumps(
+                    {
+                        "new-problem": {
+                            "difficulty": "Easy",
+                            "category": "Greedy",
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            organize_dsa.organize(source, destination, cache_file)
+
+            target = destination / "Easy" / "Greedy" / "new-problem"
+            self.assertFalse(legacy.exists())
+            self.assertEqual(
+                (target / "submission-0.py").read_text(encoding="utf-8"), "pass\n"
+            )
+            self.assertEqual(
+                (target / "legacy-only.py").read_text(encoding="utf-8"), "old\n"
+            )
+
+    def test_conflicting_legacy_file_stops_before_migration(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "source"
+            destination = root / "organized"
+            cache_file = root / "metadata.json"
+            source_problem = source / "new-problem"
+            source_problem.mkdir(parents=True)
+            legacy = destination / "Uncategorized" / "new-problem"
+            legacy.mkdir(parents=True)
+            (legacy / "submission-0.py").write_text("legacy\n", encoding="utf-8")
+            target = destination / "Easy" / "Greedy" / "new-problem"
+            target.mkdir(parents=True)
+            (target / "submission-0.py").write_text("different\n", encoding="utf-8")
+            cache_file.write_text(
+                json.dumps(
+                    {
+                        "new-problem": {
+                            "difficulty": "Easy",
+                            "category": "Greedy",
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
 
             with self.assertRaises(organize_dsa.OrganizerError):
                 organize_dsa.organize(source, destination, cache_file)
 
-            self.assertFalse(cache_file.exists())
+            self.assertTrue(legacy.exists())
+            self.assertEqual(
+                (target / "submission-0.py").read_text(encoding="utf-8"),
+                "different\n",
+            )
 
 
 if __name__ == "__main__":

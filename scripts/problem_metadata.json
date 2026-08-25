@@ -1,0 +1,97 @@
+{
+  "anagram-groups": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Medium",
+    "source": "existing-organization"
+  },
+  "binary-search": {
+    "category": "Binary-Search",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "concatenation-of-array": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "duplicate-integer": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "is-anagram": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "is-palindrome": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "is-subsequence": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "longest-consecutive-sequence": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Medium",
+    "source": "existing-organization"
+  },
+  "majority-element": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "number-of-students-unable-to-eat-lunch": {
+    "category": "Queue",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "products-of-array-discluding-self": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Medium",
+    "source": "existing-organization"
+  },
+  "remove-element": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "replace-elements-with-greatest-element-on-right-side": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "score-of-a-string": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "string-encode-and-decode": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Medium",
+    "source": "existing-organization"
+  },
+  "top-k-elements-in-list": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Medium",
+    "source": "existing-organization"
+  },
+  "two-integer-sum": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
+  "two-integer-sum-ii": {
+    "category": "Two-Pointers",
+    "difficulty": "Medium",
+    "source": "existing-organization"
+  },
+  "validate-parentheses": {
+    "category": "Stack",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  }
+}

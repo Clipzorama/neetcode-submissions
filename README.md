@@ -85,7 +85,8 @@ The original submission remains in place so NeetCode's GitHub Sync history is
 preserved. A GitHub Actions workflow discovers metadata from NeetCode's official
 problem catalog and structured problem-page data, updates the organized copy,
 and commits the result. Discovered classifications are cached in
-`scripts/problem_metadata.json`.
+`scripts/problem_metadata.json`. It also runs every six hours to catch up
+automatically if GitHub temporarily fails to start a submission-triggered run.
 
 One-time local setup:
 

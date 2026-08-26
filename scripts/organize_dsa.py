@@ -471,7 +471,7 @@ def organize(
                 f"Refusing to duplicate {slug!r}: it already exists at {rendered}, "
                 f"but metadata points to {target.relative_to(destination)}."
             )
-        
+
         legacy_locations = [
             location
             for location in locations

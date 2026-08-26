@@ -34,6 +34,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "island-perimeter": {
+    "category": "Graphs",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Island Perimeter"
+  },
   "lemonade-change": {
     "category": "Greedy",
     "difficulty": "Easy",

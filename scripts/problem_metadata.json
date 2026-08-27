@@ -105,5 +105,11 @@
     "category": "Stack",
     "difficulty": "Easy",
     "source": "existing-organization"
+  },
+  "word-pattern": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Word Pattern"
   }
 }

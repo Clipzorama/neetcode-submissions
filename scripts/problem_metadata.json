@@ -56,6 +56,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "maximum-number-of-balloons": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Maximum Number of Balloons"
+  },
   "number-of-senior-citizens": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

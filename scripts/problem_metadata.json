@@ -56,6 +56,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "number-of-senior-citizens": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Number of Senior Citizens"
+  },
   "number-of-students-unable-to-eat-lunch": {
     "category": "Queue",
     "difficulty": "Easy",

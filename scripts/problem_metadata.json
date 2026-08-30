@@ -9,6 +9,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "can-place-flowers": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Can Place Flowers"
+  },
   "concatenation-of-array": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

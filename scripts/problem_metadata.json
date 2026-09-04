@@ -62,6 +62,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "max-consecutive-ones": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Max Consecutive Ones"
+  },
   "maximum-number-of-balloons": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

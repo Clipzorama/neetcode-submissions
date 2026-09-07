@@ -125,6 +125,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "unique-email-addresses": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Unique Email Addresses"
+  },
   "validate-parentheses": {
     "category": "Stack",
     "difficulty": "Easy",

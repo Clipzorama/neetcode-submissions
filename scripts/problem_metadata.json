@@ -131,6 +131,12 @@
     "source": "neetcode-official-catalog",
     "title": "Unique Email Addresses"
   },
+  "valid-word-abbreviation": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Valid Word Abbreviation"
+  },
   "validate-parentheses": {
     "category": "Stack",
     "difficulty": "Easy",

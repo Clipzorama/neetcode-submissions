@@ -20,6 +20,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "contains-duplicate-ii": {
+    "category": "Sliding-Window",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Contains Duplicate II"
+  },
   "duplicate-integer": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

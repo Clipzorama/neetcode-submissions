@@ -1,3 +1,6 @@
+# Time Complexity: O(n) average
+# Space Complexity: O(n)
+
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         window = set()

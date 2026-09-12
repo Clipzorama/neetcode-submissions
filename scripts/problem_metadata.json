@@ -143,6 +143,12 @@
     "source": "neetcode-official-catalog",
     "title": "Unique Email Addresses"
   },
+  "valid-palindrome-ii": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Valid Palindrome II"
+  },
   "valid-word-abbreviation": {
     "category": "Two-Pointers",
     "difficulty": "Easy",

@@ -9,6 +9,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "buy-and-sell-crypto": {
+    "category": "Sliding-Window",
+    "difficulty": "Easy",
+    "source": "neetcode-catalog-title-match",
+    "title": "Best Time to Buy And Sell Stock"
+  },
   "can-place-flowers": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

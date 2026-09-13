@@ -92,6 +92,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Minimum Recolors to Get K Consecutive Black Blocks"
   },
+  "missing-number": {
+    "category": "Bit-Manipulation",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Missing Number"
+  },
   "number-of-senior-citizens": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

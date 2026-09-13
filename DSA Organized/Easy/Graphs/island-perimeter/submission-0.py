@@ -1,5 +1,5 @@
 class Solution:
-    def islandPerimeter(self, grid: List[List[int]]) -> int:
+    def islandPerimeter(self, grid: list[list[int]]) -> int:
         visit = set()
 
         # We will need to use Depth-First-Search for this problem
@@ -10,6 +10,7 @@ class Solution:
             # i >= len(grid) or j >= len(grid[i]) --> implies that the row or column is out of bounds and most 
             # return 1 since we will be counting 1 to the edge
             # Basically a condition for an index out of range to return a one
+            
             if i >= len(grid) or j >= len(grid[i]) or i < 0 or j < 0 or grid[i][j] == 0:
                 return 1
 

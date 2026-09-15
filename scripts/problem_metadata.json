@@ -86,6 +86,12 @@
     "source": "neetcode-official-catalog",
     "title": "Maximum Number of Balloons"
   },
+  "merge-sorted-array": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Merge Sorted Array"
+  },
   "minimum-recolors-to-get-k-consecutive-black-blocks": {
     "category": "Sliding-Window",
     "difficulty": "Easy",

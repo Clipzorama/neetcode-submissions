@@ -24,13 +24,4 @@ class Solution:
             nums1[k] = nums2[j]
             j -= 1
             k -= 1
-
-n1 = [10,20,20,40,0,0]
-m = 4
-n2 = [1,2]
-n = 2
-
-result = Solution()
-result.merge(n1, m, n2, n)
-
-print(n1)
+        

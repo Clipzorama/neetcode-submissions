@@ -12,6 +12,7 @@ class Solution:
 
         for char in s:
 
+            # this if-statement checks if the element in iteration is a closed parenthesis or not 
             if char in pairs:
 
                 # checking if the stack is empty or the last element contains a closing 

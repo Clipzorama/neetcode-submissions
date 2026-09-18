@@ -18,6 +18,7 @@ def backspaceCompare(s: str, t: str) -> bool:
             if s[left] == "#":
                 skip_s += 1
                 left -= 1
+
             elif skip_s > 0:
                 left -= 1
                 skip_s -= 1

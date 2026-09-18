@@ -1,10 +1,4 @@
-# Two Pointer Solution 
-
-# time complextiy: O(n)
-# space complexity: O(1)
-
-
-# pretty self explanatory. just read the code
+# Two Pointer Solution
 
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
@@ -25,6 +19,3 @@ class Solution:
 
         return maxP
         
-# Input: prices = [10,1,5,6,7,1]
-
-# Output: 6

@@ -146,6 +146,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "three-integer-sum": {
+    "category": "Two-Pointers",
+    "difficulty": "Medium",
+    "source": "neetcode-catalog-title-match",
+    "title": "3Sum"
+  },
   "top-k-elements-in-list": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",

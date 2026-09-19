@@ -4,6 +4,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "baseball-game": {
+    "category": "Stack",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Baseball Game"
+  },
   "binary-search": {
     "category": "Binary-Search",
     "difficulty": "Easy",

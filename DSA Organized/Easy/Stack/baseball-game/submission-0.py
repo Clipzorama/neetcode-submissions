@@ -1,6 +1,3 @@
-# time: O(n)
-# space: O(n) --> since res array grows in size as the input grows
-
 class Solution:
     def calPoints(self, operations: List[str]) -> int:
         res = []

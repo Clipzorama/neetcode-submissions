@@ -28,3 +28,8 @@ class Solution:
         # overall we return it as a string
         return "".join(stack)
 
+result = Solution()
+ss = "leEeetcode"
+sss = "mC"
+ssss = "kkdsFuqUfSDKK"
+print(result.makeGood(ssss))

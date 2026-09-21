@@ -43,6 +43,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "evaluate-reverse-polish-notation": {
+    "category": "Stack",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Evaluate Reverse Polish Notation"
+  },
   "is-anagram": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

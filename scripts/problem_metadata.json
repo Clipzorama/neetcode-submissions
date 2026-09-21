@@ -110,6 +110,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Minimum Recolors to Get K Consecutive Black Blocks"
   },
+  "minimum-stack": {
+    "category": "Stack",
+    "difficulty": "Medium",
+    "source": "neetcode-catalog-title-match",
+    "title": "Min Stack"
+  },
   "missing-number": {
     "category": "Bit-Manipulation",
     "difficulty": "Easy",

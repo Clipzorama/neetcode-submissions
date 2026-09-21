@@ -6,7 +6,7 @@ class Solution:
 
         result = [0] * len(temperatures)
 
-        # Monotonic decreasing stack: store [t, idx] for unresolved days.
+        # Monotonic decreasing stack: store [temperature, index] for unresolved days.
         stack = []
 
         for idx, t in enumerate(temperatures):

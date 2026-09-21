@@ -134,6 +134,12 @@
     "source": "neetcode-official-catalog",
     "title": "Missing Number"
   },
+  "move-zeroes": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Move Zeroes"
+  },
   "number-of-senior-citizens": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

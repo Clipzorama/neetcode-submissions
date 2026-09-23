@@ -1,7 +1,3 @@
-# time: O(n)
-# space: O(1)
-
-
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
         left = 0
@@ -16,7 +12,6 @@ class Solution:
                 count += 1
                 left += 1
                 right += 1
-            # if they dont equal then we continue
             else:
                 right += 1
 

@@ -171,6 +171,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "sort-colors": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Sort Colors"
+  },
   "string-encode-and-decode": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",

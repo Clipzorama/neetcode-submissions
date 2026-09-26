@@ -24,6 +24,123 @@ class FakeResponse:
 
 
 class OrganizerTests(unittest.TestCase):
+    def test_multiple_patterns_are_learned_and_synced_without_network(self):
+        for cached in (False, True):
+            with self.subTest(cached=cached), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                source = root / "source"
+                destination = root / "organized"
+                cache_file = root / "metadata.json"
+                problem = source / "sort-colors"
+                problem.mkdir(parents=True)
+                submission = problem / "submission-1.py"
+                submission.write_text("new\n", encoding="utf-8")
+                categories = ["Arrays-and-Hashing", "Two-Pointers"]
+                targets = [destination / "Medium" / c / problem.name for c in categories]
+                for target in targets:
+                    target.mkdir(parents=True)
+                    (target / "old.py").write_text(target.parent.name, encoding="utf-8")
+                    (target / submission.name).write_text("outdated\n", encoding="utf-8")
+                if cached:
+                    cache_file.write_text(json.dumps({problem.name: {
+                        "difficulty": "Medium", "category": categories[0],
+                        "title": "Sort Colors", "source": "neetcode-official-catalog",
+                    }}), encoding="utf-8")
+                session = Mock()
+
+                count = organize_dsa.organize(source, destination, cache_file, session=session)
+
+                self.assertEqual(count, 2)
+                metadata = json.loads(cache_file.read_text(encoding="utf-8"))[problem.name]
+                self.assertEqual(metadata["categories"], categories)
+                if cached:
+                    self.assertEqual(metadata["title"], "Sort Colors")
+                    self.assertEqual(metadata["source"], "neetcode-official-catalog")
+                for target in targets:
+                    self.assertEqual((target / submission.name).read_text(), "new\n")
+                    self.assertEqual((target / "old.py").read_text(), target.parent.name)
+                first_cache = cache_file.read_bytes()
+                self.assertEqual(
+                    organize_dsa.organize(source, destination, cache_file, session=session), 0
+                )
+                self.assertEqual(cache_file.read_bytes(), first_cache)
+                # A later submission must also reach both categories.
+                (problem / "submission-2.py").write_text("later\n", encoding="utf-8")
+                self.assertEqual(
+                    organize_dsa.organize(source, destination, cache_file, session=session), 2
+                )
+                for target in targets:
+                    self.assertEqual((target / "submission-2.py").read_text(), "later\n")
+                self.assertEqual(submission.read_text(), "new\n")
+                session.get.assert_not_called()
+
+    def test_cached_patterns_recreate_missing_locations_and_support_dry_run(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "source"
+            destination = root / "organized"
+            cache_file = root / "metadata.json"
+            problem = source / "sort-colors"
+            problem.mkdir(parents=True)
+            (problem / "submission.py").write_text("pass\n", encoding="utf-8")
+            categories = ["Arrays-and-Hashing", "Two-Pointers"]
+            cache_file.write_text(json.dumps({problem.name: {
+                "difficulty": "Medium", "category": categories[0], "categories": categories,
+            }}), encoding="utf-8")
+            original_cache = cache_file.read_bytes()
+            session = Mock()
+
+            self.assertEqual(organize_dsa.organize(
+                source, destination, cache_file, dry_run=True, session=session
+            ), 2)
+            self.assertFalse(destination.exists())
+            self.assertEqual(cache_file.read_bytes(), original_cache)
+            self.assertEqual(organize_dsa.organize(
+                source, destination, cache_file, session=session
+            ), 2)
+            for category in categories:
+                self.assertEqual(
+                    (destination / "Medium" / category / problem.name / "submission.py").read_text(),
+                    "pass\n",
+                )
+            session.get.assert_not_called()
+
+    def test_conflicting_difficulties_change_nothing(self):
+        for cached in (False, True):
+            with self.subTest(cached=cached), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                source = root / "source"
+                destination = root / "organized"
+                cache_file = root / "metadata.json"
+                problem = source / "sort-colors"
+                problem.mkdir(parents=True)
+                (problem / "submission.py").write_text("pass\n", encoding="utf-8")
+                target = destination / "Easy" / "Two-Pointers" / problem.name
+                target.mkdir(parents=True)
+                if cached:
+                    cache_file.write_text(json.dumps({problem.name: {
+                        "difficulty": "Medium", "category": "Arrays-and-Hashing",
+                    }}), encoding="utf-8")
+                else:
+                    (destination / "Medium" / "Arrays-and-Hashing" / problem.name).mkdir(parents=True)
+                before = {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+
+                with self.assertRaisesRegex(organize_dsa.OrganizerError, "conflicting difficulties"):
+                    organize_dsa.organize(source, destination, cache_file)
+
+                self.assertEqual(
+                    {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}, before
+                )
+
+    def test_invalid_category_lists_are_rejected(self):
+        for categories in ([], "Two-Pointers", ["../outside"], [None], ["Two-Pointers"]):
+            with self.subTest(categories=categories):
+                with self.assertRaises(organize_dsa.OrganizerError):
+                    organize_dsa.validate_metadata("sort-colors", {
+                        "difficulty": "Medium", "category": "Arrays-and-Hashing",
+                        "categories": categories,
+                    })
+
     def test_extracts_structured_problem_state(self):
         state = {
             "problem-new-problem": {
@@ -178,6 +295,7 @@ class OrganizerTests(unittest.TestCase):
                         "new-problem": {
                             "difficulty": "Easy",
                             "category": "Greedy",
+                            "categories": ["Arrays-and-Hashing", "Greedy"],
                         }
                     }
                 ),
@@ -194,6 +312,10 @@ class OrganizerTests(unittest.TestCase):
             self.assertEqual(
                 (target / "legacy-only.py").read_text(encoding="utf-8"), "old\n"
             )
+            other = destination / "Easy" / "Arrays-and-Hashing" / "new-problem"
+            self.assertEqual((other / "legacy-only.py").read_text(), "old\n")
+            self.assertEqual((other / "submission-0.py").read_text(), "pass\n")
+            self.assertEqual(organize_dsa.organize(source, destination, cache_file), 0)
 
     def test_conflicting_legacy_file_stops_before_migration(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -215,6 +337,7 @@ class OrganizerTests(unittest.TestCase):
                         "new-problem": {
                             "difficulty": "Easy",
                             "category": "Greedy",
+                            "categories": ["Arrays-and-Hashing", "Greedy"],
                         }
                     }
                 ),
@@ -225,6 +348,7 @@ class OrganizerTests(unittest.TestCase):
                 organize_dsa.organize(source, destination, cache_file)
 
             self.assertTrue(legacy.exists())
+            self.assertFalse((destination / "Easy" / "Arrays-and-Hashing").exists())
             self.assertEqual(
                 (target / "submission-0.py").read_text(encoding="utf-8"),
                 "different\n",

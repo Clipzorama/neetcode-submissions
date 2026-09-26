@@ -53,6 +53,8 @@ NeetCode submissions sync here through its GitHub integration. A [GitHub Actions
 
 The organizer discovers problem metadata from NeetCode and caches classifications in [`scripts/problem_metadata.json`](scripts/problem_metadata.json).
 
+Problems can belong to multiple patterns. For example, Sort Colors appears under both `Medium/Arrays-and-Hashing` and `Medium/Two-Pointers`. The organizer learns categories from existing folders, keeps them in the cache's optional `categories` list (including the original `category`), and syncs source submissions to every category. You can also add a category to that list directly. Existing submission history stays in place; conflicting difficulty levels still stop the run before files change.
+
 One-time setup:
 
 ```bash

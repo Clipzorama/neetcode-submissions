@@ -6,7 +6,9 @@ on:
       - main
     paths:
       - "Data Structures & Algorithms/**"
+      - "DSA Organized/**"
       - "scripts/organize_dsa.py"
+      - "scripts/problem_metadata.json"
       - "requirements-organizer.txt"
       - "tests/**"
       - ".github/workflows/organize-dsa.yml"

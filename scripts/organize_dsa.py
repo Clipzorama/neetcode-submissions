@@ -11,7 +11,7 @@ from pathlib import Path
 import re
 import shutil
 import sys
-from typing import Any
+from typing import Any, NotRequired, TypedDict
 
 import requests
 
@@ -93,6 +93,20 @@ class OrganizerError(RuntimeError):
     """A safe, user-actionable organizer failure."""
 
 
+class Metadata(TypedDict):
+    # Keep the original primary category for compatibility with existing caches.
+    # Multi-pattern entries also store the complete set in categories.
+    difficulty: str
+    category: str
+    categories: NotRequired[list[str]]
+    title: NotRequired[str]
+    source: NotRequired[str]
+
+
+def metadata_categories(metadata: Metadata) -> list[str]:
+    return metadata.get("categories", [metadata["category"]])
+
+
 class ScriptJSONParser(HTMLParser):
     """Extract the contents of a script element by id."""
 
@@ -125,7 +139,7 @@ def normalize_title(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
 
 
-def validate_metadata(slug: str, metadata: Any) -> dict[str, str]:
+def validate_metadata(slug: str, metadata: Any) -> Metadata:
     if not isinstance(metadata, dict):
         raise OrganizerError(f"Cache entry for {slug!r} is not an object.")
 
@@ -140,14 +154,30 @@ def validate_metadata(slug: str, metadata: Any) -> dict[str, str]:
             f"Cache entry for {slug!r} has invalid category {category!r}."
         )
 
-    result = {"difficulty": difficulty, "category": category}
+    categories = metadata.get("categories", [category])
+    if (
+        not isinstance(categories, list)
+        or not categories
+        or any(
+            not isinstance(item, str) or not re.fullmatch(r"[A-Za-z0-9-]+", item)
+            for item in categories
+        )
+        or category not in categories
+    ):
+        raise OrganizerError(
+            f"Cache entry for {slug!r} has invalid categories {categories!r}. "
+            "Expected a nonempty list of folder names including the primary category."
+        )
+    result: Metadata = {"difficulty": difficulty, "category": category}
+    if len(set(categories)) > 1:
+        result["categories"] = sorted(set(categories))
     for key in ("title", "source"):
         if isinstance(metadata.get(key), str):
             result[key] = metadata[key]
     return result
 
 
-def load_cache(cache_file: Path) -> dict[str, dict[str, str]]:
+def load_cache(cache_file: Path) -> dict[str, Metadata]:
     if not cache_file.exists():
         return {}
     try:
@@ -159,7 +189,7 @@ def load_cache(cache_file: Path) -> dict[str, dict[str, str]]:
     return {str(slug): validate_metadata(str(slug), item) for slug, item in raw.items()}
 
 
-def save_cache(cache_file: Path, cache: dict[str, dict[str, str]]) -> None:
+def save_cache(cache_file: Path, cache: dict[str, Metadata]) -> None:
     cache_file.parent.mkdir(parents=True, exist_ok=True)
     serialized = json.dumps(cache, indent=2, sort_keys=True) + "\n"
     if cache_file.exists() and cache_file.read_text(encoding="utf-8") == serialized:
@@ -194,7 +224,7 @@ def is_classified_location(destination: Path, location: Path) -> bool:
 
 
 def learn_existing_metadata(
-    source: Path, destination: Path, cache: dict[str, dict[str, str]]
+    source: Path, destination: Path, cache: dict[str, Metadata]
 ) -> int:
     learned = 0
     for problem_path in sorted(path for path in source.iterdir() if path.is_dir()):
@@ -205,33 +235,32 @@ def learn_existing_metadata(
             for location in locations
             if is_classified_location(destination, location)
         ]
-        if len(classified) > 1:
-            rendered = ", ".join(
-                str(path.relative_to(destination)) for path in classified
-            )
-            raise OrganizerError(f"{slug!r} exists in multiple organized locations: {rendered}")
         if not classified:
             continue
 
+        difficulties = {location.parent.parent.name for location in classified}
+        if slug in cache:
+            difficulties.add(cache[slug]["difficulty"])
+        if len(difficulties) > 1:
+            rendered = ", ".join(
+                str(path.relative_to(destination)) for path in classified
+            )
+            raise OrganizerError(
+                f"{slug!r} has conflicting difficulties in the cache or organized "
+                f"locations: {rendered}. No files were changed."
+            )
+
         location = classified[0]
-        discovered = {
+        discovered = cache.get(slug, {
             "difficulty": location.parent.parent.name,
             "category": location.parent.name,
             "source": "existing-organization",
-        }
+        }).copy()
+        categories = set(metadata_categories(discovered))
+        categories.update(location.parent.name for location in classified)
+        discovered["categories"] = sorted(categories)
         discovered = validate_metadata(slug, discovered)
-        if slug in cache:
-            expected = cache[slug]
-            if (
-                expected["difficulty"] != discovered["difficulty"]
-                or expected["category"] != discovered["category"]
-            ):
-                raise OrganizerError(
-                    f"Cache says {slug!r} belongs in "
-                    f"{expected['difficulty']}/{expected['category']}, but it already exists "
-                    f"in {discovered['difficulty']}/{discovered['category']}."
-                )
-        else:
+        if cache.get(slug) != discovered:
             cache[slug] = discovered
             learned += 1
     return learned
@@ -305,7 +334,7 @@ def catalog_indexes(
 
 def metadata_from_catalog_row(
     slug: str, row: dict[str, Any], source: str
-) -> dict[str, str]:
+) -> Metadata:
     difficulty = row.get("difficulty")
     pattern = row.get("pattern")
     category = PATTERN_CATEGORIES.get(pattern)
@@ -338,7 +367,7 @@ def discover_metadata(
     slug: str,
     by_slug: dict[str, dict[str, Any]],
     by_title: dict[str, list[dict[str, Any]]],
-) -> dict[str, str]:
+) -> Metadata:
     exact = by_slug.get(normalize_slug(slug))
     if exact is not None:
         return metadata_from_catalog_row(slug, exact, "neetcode-official-catalog")
@@ -405,15 +434,17 @@ def validate_legacy_migrations(legacy_locations: list[Path], target: Path) -> No
 
 
 def migrate_legacy_locations(
-    legacy_locations: list[Path], target: Path, destination: Path
+    legacy_locations: list[Path], targets: list[Path], destination: Path
 ) -> None:
-    target.mkdir(parents=True, exist_ok=True)
+    for target in targets:
+        target.mkdir(parents=True, exist_ok=True)
+        for legacy in legacy_locations:
+            for legacy_file in (path for path in legacy.rglob("*") if path.is_file()):
+                target_file = target / legacy_file.relative_to(legacy)
+                if not target_file.exists():
+                    target_file.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(legacy_file, target_file)
     for legacy in legacy_locations:
-        for legacy_file in (path for path in legacy.rglob("*") if path.is_file()):
-            target_file = target / legacy_file.relative_to(legacy)
-            if not target_file.exists():
-                target_file.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(legacy_file, target_file)
         shutil.rmtree(legacy)
         parent = legacy.parent
         if parent != destination and parent.is_dir() and not any(parent.iterdir()):
@@ -451,48 +482,40 @@ def organize(
             print(f"Discovering metadata for {slug}...")
             cache[slug] = discover_metadata(active_session, slug, by_slug, by_title)
 
-    migration_plan: list[tuple[list[Path], Path, str]] = []
+    migration_plan: list[tuple[list[Path], list[Path], str]] = []
     copy_plan: list[tuple[Path, Path, str]] = []
     for problem_path in problems:
         slug = problem_path.name
         metadata = cache[slug]
-        target = destination / metadata["difficulty"] / metadata["category"] / slug
-        locations = existing_locations(destination, slug)
-        classified_elsewhere = [
-            location
-            for location in locations
-            if location != target and is_classified_location(destination, location)
+        targets = [
+            destination / metadata["difficulty"] / category / slug
+            for category in metadata_categories(metadata)
         ]
-        if classified_elsewhere:
-            rendered = ", ".join(
-                str(path.relative_to(destination)) for path in classified_elsewhere
-            )
-            raise OrganizerError(
-                f"Refusing to duplicate {slug!r}: it already exists at {rendered}, "
-                f"but metadata points to {target.relative_to(destination)}."
-            )
-
+        locations = existing_locations(destination, slug)
         legacy_locations = [
             location
             for location in locations
             if not is_classified_location(destination, location)
         ]
         if legacy_locations:
-            validate_legacy_migrations(legacy_locations, target)
-            migration_plan.append((legacy_locations, target, slug))
-        for source_file, target_file in files_to_copy(problem_path, target):
-            copy_plan.append((source_file, target_file, slug))
+            for target in targets:
+                validate_legacy_migrations(legacy_locations, target)
+            migration_plan.append((legacy_locations, targets, slug))
+        for target in targets:
+            for source_file, target_file in files_to_copy(problem_path, target):
+                copy_plan.append((source_file, target_file, slug))
 
     if dry_run:
         print(f"Dry run: {learned + len(unknown)} metadata entrie(s) would be cached.")
         if not migration_plan and not copy_plan:
             print("Dry run: organized submissions are already synchronized.")
-        for legacy_locations, target, _ in migration_plan:
-            for legacy in legacy_locations:
-                print(
-                    f"Would migrate {display_path(legacy)} -> "
-                    f"{display_path(target)}"
-                )
+        for legacy_locations, targets, _ in migration_plan:
+            for target in targets:
+                for legacy in legacy_locations:
+                    print(
+                        f"Would migrate {display_path(legacy)} -> "
+                        f"{display_path(target)}"
+                    )
         for source_file, target_file, _ in copy_plan:
             print(
                 f"Would copy {display_path(source_file)} -> "
@@ -500,18 +523,16 @@ def organize(
             )
         return len(copy_plan)
 
-    for legacy_locations, target, slug in migration_plan:
-        migrate_legacy_locations(legacy_locations, target, destination)
-        print(
-            f"Migrated {slug} -> "
-            f"{target.relative_to(destination).parent}"
-        )
+    for legacy_locations, targets, slug in migration_plan:
+        migrate_legacy_locations(legacy_locations, targets, destination)
+        for target in targets:
+            print(f"Migrated {slug} -> {target.relative_to(destination).parent}")
 
     for source_file, target_file, slug in copy_plan:
         target_file.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source_file, target_file)
-        metadata = cache[slug]
-        print(f"Copied {slug} -> {metadata['difficulty']}/{metadata['category']}")
+        difficulty, category = target_file.relative_to(destination).parts[:2]
+        print(f"Copied {slug} -> {difficulty}/{category}")
 
     save_cache(cache_file, cache)
     if not copy_plan:

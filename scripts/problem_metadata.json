@@ -172,6 +172,10 @@
     "source": "existing-organization"
   },
   "sort-colors": {
+    "categories": [
+      "Arrays-and-Hashing",
+      "Two-Pointers"
+    ],
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",
     "source": "neetcode-official-catalog",

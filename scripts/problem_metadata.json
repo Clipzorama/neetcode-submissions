@@ -82,6 +82,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Lemonade Change"
   },
+  "length-of-last-word": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Length of Last Word"
+  },
   "longest-consecutive-sequence": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",

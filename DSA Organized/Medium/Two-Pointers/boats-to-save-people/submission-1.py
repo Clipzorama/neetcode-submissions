@@ -1,6 +1,3 @@
-# Time: O(n log n) because of sorting.
-# Space: typically O(1)
-
 class Solution:
     def numRescueBoats(self, people: List[int], limit: int) -> int:
         # Sort people by weight so we can use two pointers

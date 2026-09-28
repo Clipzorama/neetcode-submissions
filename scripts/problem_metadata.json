@@ -15,6 +15,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "boats-to-save-people": {
+    "category": "Two-Pointers",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Boats to Save People"
+  },
   "buy-and-sell-crypto": {
     "category": "Sliding-Window",
     "difficulty": "Easy",

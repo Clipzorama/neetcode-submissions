@@ -1,5 +1,5 @@
 class Solution:
-    def numRescueBoats(self, people: list[int], limit: int) -> int:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
         # this way it would be easier to point and go from there
         people.sort()
 

@@ -1,5 +1,5 @@
 class Solution:
-    def numRescueBoats(self, people: list[int], limit: int) -> int:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
         # Sort people by weight so we can use two pointers
         people.sort()
 

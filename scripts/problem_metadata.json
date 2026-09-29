@@ -184,6 +184,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "reverse-string": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Reverse String"
+  },
   "score-of-a-string": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

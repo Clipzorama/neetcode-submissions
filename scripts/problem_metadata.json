@@ -163,6 +163,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "number-of-subsequences-that-satisfy-the-given-sum-condition": {
+    "category": "Two-Pointers",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Number of Subsequences That Satisfy The Given Sum Condition"
+  },
   "products-of-array-discluding-self": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",

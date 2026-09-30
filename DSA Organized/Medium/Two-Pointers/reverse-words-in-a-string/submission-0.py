@@ -1,5 +1,5 @@
 
-# this is not the most optimal solution but here were using a deque
+# this is the most optimal solution but here were using a deque
 
 # time: O(n)
 # space: O(n)

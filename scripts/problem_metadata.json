@@ -190,6 +190,12 @@
     "source": "neetcode-official-catalog",
     "title": "Reverse String"
   },
+  "rotate-array": {
+    "category": "Two-Pointers",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Rotate Array"
+  },
   "score-of-a-string": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

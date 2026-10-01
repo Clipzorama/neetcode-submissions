@@ -1,5 +1,5 @@
 class Solution:
-    def sortColors(self, nums: List[int]) -> None:
+    def sortColors(self, nums: list[int]) -> None:
         
         # position where the next 0 shoulg go
         left = 0

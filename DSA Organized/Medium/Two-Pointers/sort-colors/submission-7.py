@@ -1,7 +1,7 @@
 # doing the solution again with the three-pointer approach (Dutch National Flag)
 
 class Solution:
-    def sortColors(self, nums: List[int]) -> None:
+    def sortColors(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """

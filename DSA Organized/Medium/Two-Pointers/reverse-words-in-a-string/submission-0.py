@@ -1,3 +1,4 @@
+from collections import deque
 
 # this is the most optimal solution but here were using a deque
 

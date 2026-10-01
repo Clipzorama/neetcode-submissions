@@ -212,6 +212,10 @@
     "title": "Sort Colors"
   },
   "squares-of-a-sorted-array": {
+    "categories": [
+      "Binary-Search",
+      "Two-Pointers"
+    ],
     "category": "Binary-Search",
     "difficulty": "Easy",
     "source": "neetcode-official-catalog",

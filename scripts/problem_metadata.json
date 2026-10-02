@@ -82,6 +82,12 @@
     "source": "neetcode-official-catalog",
     "title": "Island Perimeter"
   },
+  "isomorphic-strings": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Isomorphic Strings"
+  },
   "lemonade-change": {
     "category": "Greedy",
     "difficulty": "Easy",

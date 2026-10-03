@@ -232,6 +232,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "string-matching-in-an-array": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "String Matching in an Array"
+  },
   "three-integer-sum": {
     "category": "Two-Pointers",
     "difficulty": "Medium",

@@ -61,6 +61,12 @@
     "source": "neetcode-official-catalog",
     "title": "Evaluate Reverse Polish Notation"
   },
+  "height-checker": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Height Checker"
+  },
   "is-anagram": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

@@ -223,6 +223,12 @@
     "source": "neetcode-official-catalog",
     "title": "Sort Colors"
   },
+  "special-array-i": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Special Array I"
+  },
   "squares-of-a-sorted-array": {
     "categories": [
       "Binary-Search",

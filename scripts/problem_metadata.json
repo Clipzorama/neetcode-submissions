@@ -61,6 +61,12 @@
     "source": "neetcode-official-catalog",
     "title": "Evaluate Reverse Polish Notation"
   },
+  "height-checker": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Height Checker"
+  },
   "is-anagram": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",
@@ -152,6 +158,12 @@
     "source": "neetcode-official-catalog",
     "title": "Missing Number"
   },
+  "monotonic-array": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Monotonic Array"
+  },
   "move-zeroes": {
     "category": "Two-Pointers",
     "difficulty": "Easy",
@@ -216,6 +228,12 @@
     "difficulty": "Medium",
     "source": "neetcode-official-catalog",
     "title": "Sort Colors"
+  },
+  "special-array-i": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Special Array I"
   },
   "squares-of-a-sorted-array": {
     "categories": [

@@ -158,6 +158,12 @@
     "source": "neetcode-official-catalog",
     "title": "Missing Number"
   },
+  "monotonic-array": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Monotonic Array"
+  },
   "move-zeroes": {
     "category": "Two-Pointers",
     "difficulty": "Easy",

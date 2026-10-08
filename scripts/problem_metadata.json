@@ -146,6 +146,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Minimum Recolors to Get K Consecutive Black Blocks"
   },
+  "minimum-size-subarray-sum": {
+    "category": "Sliding-Window",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Minimum Size Subarray Sum"
+  },
   "minimum-stack": {
     "category": "Stack",
     "difficulty": "Medium",

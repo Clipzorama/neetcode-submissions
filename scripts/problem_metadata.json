@@ -111,6 +111,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "longest-substring-without-duplicates": {
+    "category": "Sliding-Window",
+    "difficulty": "Medium",
+    "source": "neetcode-catalog-title-match",
+    "title": "Longest Substring Without Repeating Characters"
+  },
   "majority-element": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

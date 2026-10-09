@@ -111,6 +111,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "longest-repeating-substring-with-replacement": {
+    "category": "Sliding-Window",
+    "difficulty": "Medium",
+    "source": "neetcode-catalog-title-match",
+    "title": "Longest Repeating Character Replacement"
+  },
   "longest-substring-without-duplicates": {
     "category": "Sliding-Window",
     "difficulty": "Medium",

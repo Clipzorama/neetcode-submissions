@@ -164,6 +164,12 @@
     "source": "neetcode-official-catalog",
     "title": "Maximum Number of Balloons"
   },
+  "maximum-score-after-splitting-a-string": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Maximum Score After Splitting a String"
+  },
   "merge-sorted-array": {
     "category": "Two-Pointers",
     "difficulty": "Easy",

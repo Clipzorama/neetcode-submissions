@@ -61,6 +61,12 @@
     "source": "neetcode-official-catalog",
     "title": "Evaluate Reverse Polish Notation"
   },
+  "find-pivot-index": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Find Pivot Index"
+  },
   "height-checker": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

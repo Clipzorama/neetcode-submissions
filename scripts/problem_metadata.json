@@ -61,6 +61,18 @@
     "source": "neetcode-official-catalog",
     "title": "Evaluate Reverse Polish Notation"
   },
+  "find-missing-and-repeated-values": {
+    "category": "Matrix",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Find Missing and Repeated Values"
+  },
+  "find-pivot-index": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Find Pivot Index"
+  },
   "height-checker": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",
@@ -139,6 +151,12 @@
     "difficulty": "Medium",
     "source": "neetcode-catalog-title-match",
     "title": "Container With Most Water"
+  },
+  "maximum-difference-between-even-and-odd-frequency-i": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Maximum Difference Between Even and Odd Frequency I"
   },
   "maximum-number-of-balloons": {
     "category": "Arrays-and-Hashing",

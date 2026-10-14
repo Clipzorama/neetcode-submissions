@@ -32,7 +32,12 @@ DSA Organized/
       is-anagram/
         submission-0.py
         submission-1.py
+    Prefix-Sum/
+      README.md
   Medium/
+    Prefix-Sum/
+      products-of-array-discluding-self/
+        submission-0.py
     Two-Pointers/
       three-integer-sum/
         submission-1.py
@@ -47,6 +52,8 @@ Python Coding Interviews/
 ```
 
 NeetCode submissions sync here through its GitHub integration. A [GitHub Actions workflow](.github/workflows/organize-dsa.yml) copies DSA solutions into the organized folder by difficulty and category, while preserving the original files and submission history. It runs on relevant pushes and every six hours to catch up on missed runs.
+
+Prefix sum and related prefix/suffix accumulation problems have dedicated [Easy](DSA%20Organized/Easy/Prefix-Sum/) and [Medium](DSA%20Organized/Medium/Prefix-Sum/) folders. Product Except Self uses prefix/suffix **products** and appears in both `Medium/Prefix-Sum` and `Medium/Arrays-and-Hashing`. The Easy folder is ready for future submissions; no current Easy solution implements prefix sums.
 
 <details>
 <summary>Run the organizer locally</summary>

@@ -206,6 +206,10 @@
     "title": "Number of Subsequences That Satisfy The Given Sum Condition"
   },
   "products-of-array-discluding-self": {
+    "categories": [
+      "Arrays-and-Hashing",
+      "Prefix-Sum"
+    ],
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",
     "source": "existing-organization"

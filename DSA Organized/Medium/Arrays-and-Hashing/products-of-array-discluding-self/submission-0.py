@@ -1,17 +1,24 @@
+"""
+PREFIX 
+
+[1, 1, 1, 1] Iteration 1 (since 1 is assigned to prefix = 1 by default)
+[1, 1, 1, 1] Iteration 2 (since 1 is assigned to prefix = 1 after multiplication = 1 times 1 -> nums[0])
+[1, 1, 2, 1] Iteration 3 (since 2 is assigned to prefix = 2 after multiplication with selected array = 1 times 2 -> nums[1])
+[1, 1, 2, 8] Iteration 4 (since 8 is assigned to prefix = 8 after multiplication with selected array = 2 times 4 -> nums[2])
+
+"""
 
 
-# Pattern: Prefix + Suffix (Combining Both Sides)
-# When to recognize: A problem requires information from elements before AND after each index, often excluding the current element.
 
-# Core intuition:
+"""
+SUFFIX
 
-# - Prefix → Accumulate information from left to right.
-# - Suffix → Accumulate information from right to left.
-# - Combine → Use information from both sides to calculate the answer.
+[1, 1, 2, 8] Iteration 1 (since 8 times 1 --> suffix then equal 6)
+[1, 1, 12, 8] Iteration 2 (since 2 times 6 --> suffix then equal 24)
+[1, 1, 2, 8] Iteration 3 (since 1 times 24 --> suffix then equal 48)
+[1, 1, 2, 8] Iteration 4 (since 1 times 48 --> LOOP BREAKS AND ANSWER IS RETURNED)
 
-# ans[i] = prefix[i] * suffix[i]
-
-from typing import List
+"""
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
@@ -39,11 +46,6 @@ class Solution:
 
 
 
-
-n = [3, 2, 5, 4, 6]
-result = Solution()
-
-print(result.productExceptSelf(n))
 
 
 

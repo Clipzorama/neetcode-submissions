@@ -73,6 +73,12 @@
     "source": "neetcode-official-catalog",
     "title": "Find Pivot Index"
   },
+  "find-the-difference-of-two-arrays": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Find the Difference of Two Arrays"
+  },
   "height-checker": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

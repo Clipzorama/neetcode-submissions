@@ -256,6 +256,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "ransom-note": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Ransom Note"
+  },
   "remove-element": {
     "category": "Two-Pointers",
     "difficulty": "Easy",

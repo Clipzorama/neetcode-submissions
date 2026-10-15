@@ -79,6 +79,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Height Checker"
   },
+  "intersection-of-two-arrays": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Intersection of Two Arrays"
+  },
   "is-anagram": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

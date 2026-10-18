@@ -247,6 +247,12 @@
     "source": "neetcode-official-catalog",
     "title": "Number of Subsequences That Satisfy The Given Sum Condition"
   },
+  "permutation-string": {
+    "category": "Sliding-Window",
+    "difficulty": "Medium",
+    "source": "neetcode-catalog-title-match",
+    "title": "Permutation In String"
+  },
   "products-of-array-discluding-self": {
     "categories": [
       "Arrays-and-Hashing",

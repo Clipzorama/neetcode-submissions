@@ -79,6 +79,12 @@
     "source": "neetcode-official-catalog",
     "title": "Find the Difference of Two Arrays"
   },
+  "fruit-into-baskets": {
+    "category": "Sliding-Window",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Fruits into Basket"
+  },
   "height-checker": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

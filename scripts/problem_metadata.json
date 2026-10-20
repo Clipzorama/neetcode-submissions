@@ -182,6 +182,12 @@
     "source": "neetcode-official-catalog",
     "title": "Maximum Number of Balloons"
   },
+  "maximum-points-you-can-obtain-from-cards": {
+    "category": "Greedy",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Maximum Points You Can Obtain From Cards"
+  },
   "maximum-score-after-splitting-a-string": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

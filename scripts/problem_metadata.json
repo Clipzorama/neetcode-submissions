@@ -259,6 +259,12 @@
     "source": "neetcode-official-catalog",
     "title": "Number of Subsequences That Satisfy The Given Sum Condition"
   },
+  "partition-array-according-to-given-pivot": {
+    "category": "Two-Pointers",
+    "difficulty": "Medium",
+    "source": "neetcode-page-structured-data",
+    "title": "Partition Array According to Given Pivot"
+  },
   "permutation-string": {
     "category": "Sliding-Window",
     "difficulty": "Medium",

@@ -136,6 +136,12 @@
     "source": "neetcode-official-catalog",
     "title": "Length of Last Word"
   },
+  "longest-common-prefix": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Longest Common Prefix"
+  },
   "longest-consecutive-sequence": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",

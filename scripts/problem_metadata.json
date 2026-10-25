@@ -248,6 +248,12 @@
     "source": "neetcode-official-catalog",
     "title": "Move Zeroes"
   },
+  "next-greater-element-i": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Next Greater Element I"
+  },
   "non-cyclical-number": {
     "category": "Two-Pointers",
     "difficulty": "Easy",

@@ -288,6 +288,12 @@
     "source": "neetcode-official-catalog",
     "title": "Number of Subsequences That Satisfy The Given Sum Condition"
   },
+  "online-stock-span": {
+    "category": "Stack",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Online Stock Span"
+  },
   "partition-array-according-to-given-pivot": {
     "category": "Two-Pointers",
     "difficulty": "Medium",

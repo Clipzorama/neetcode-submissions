@@ -96,6 +96,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Find Words That Can Be Formed by Characters"
   },
+  "first-unique-character-in-a-string": {
+    "category": "Queue",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "First Unique Character in a String"
+  },
   "fruit-into-baskets": {
     "category": "Sliding-Window",
     "difficulty": "Medium",

@@ -277,6 +277,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Non-Cyclical Number"
   },
+  "number-of-good-pairs": {
+    "category": "Math-and-Geometry",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Number of Good Pairs"
+  },
   "number-of-senior-citizens": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

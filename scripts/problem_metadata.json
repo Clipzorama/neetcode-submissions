@@ -33,6 +33,12 @@
     "source": "neetcode-official-catalog",
     "title": "Can Place Flowers"
   },
+  "check-if-array-is-sorted-and-rotated": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Check if Array Is Sorted and Rotated"
+  },
   "concatenation-of-array": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

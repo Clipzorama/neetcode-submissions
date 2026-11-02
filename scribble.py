@@ -1,21 +1,23 @@
 from typing import List
 
-# circular array solution
 
 class Solution:
-    def check(self, nums: List[int]) -> bool:
+    def nextGreaterElements(self, nums: list[int]) -> list[int]:
         N = len(nums)
-        count = 1
-        # 2 * N --> makes the array circular [3, 4, 5, 1, 2, 3, 4, 5, 1, 2]
+        stack = []
+        res = [-1] * len(nums)
+
         for i in range(1, 2 * N):
+            curr = nums[i % N]
 
-            if nums[(i - 1) % N] <= nums[i % N]:
-                count += 1
-
-            if count == N:
-                return True
-
-        return False
+            while stack and nums[(i - 1) % N] < curr:
+                idx = stack.pop()
+                res[idx] = curr
+            
+            stack.append(i % N)
+        
+        return res
+        
         
 
 
@@ -23,6 +25,7 @@ class Solution:
 
 
 
-n = [3, 4, 5, 1, 2]
+n = [1,2,3,4,3]
+# Output: [2,3,4,-1,4]
 result = Solution()
-print(result.check(n))
+print(result.nextGreaterElements(n))

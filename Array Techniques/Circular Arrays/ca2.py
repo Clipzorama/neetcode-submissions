@@ -1,4 +1,11 @@
+from typing import List
+
 # circular array solution
+
+# this implements sliding window and also circular arrays as well
+
+# Time: O(n)
+# Space: O(1)
 
 class Solution:
     def check(self, nums: List[int]) -> bool:
@@ -7,6 +14,7 @@ class Solution:
         # 2 * N --> makes the array circular [3, 4, 5, 1, 2, 3, 4, 5, 1, 2]
         for i in range(1, 2 * N):
 
+            # i = 5 --> nums[4] <= nums[0] --> it rotates after that 
             if nums[(i - 1) % N] <= nums[i % N]:
                 count += 1
             else:

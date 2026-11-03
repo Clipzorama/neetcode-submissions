@@ -56,6 +56,11 @@
     "source": "neetcode-official-catalog",
     "title": "Daily Temperatures"
   },
+  "defuse-the-bomb": {
+    "category": "Sliding-Window",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
   "duplicate-integer": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

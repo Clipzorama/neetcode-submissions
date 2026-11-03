@@ -1,5 +1,3 @@
-from typing import List
-
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
         N = len(code)                 # Store the length of the circular array
@@ -22,6 +20,4 @@ class Solution:
                 elif k < 0:           # Negative k means the window represents the previous |k| values
                     res[(r + 1) % N] = cur_sum  # Store the sum for the element after the window
 
-        return res                    # Return the decrypted array
-            
-        
+        return res    

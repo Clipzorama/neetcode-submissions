@@ -1,4 +1,10 @@
 {
+  "alternating-groups-ii": {
+    "category": "Sliding-Window",
+    "difficulty": "Medium",
+    "source": "neetcode-page-structured-data",
+    "title": "Alternating Groups II"
+  },
   "anagram-groups": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",

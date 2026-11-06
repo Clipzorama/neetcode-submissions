@@ -193,6 +193,12 @@
     "source": "neetcode-catalog-title-match",
     "title": "Longest Repeating Character Replacement"
   },
+  "longest-strictly-increasing-or-strictly-decreasing-subarray": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Longest Strictly Increasing or Strictly Decreasing Subarray"
+  },
   "longest-substring-without-duplicates": {
     "category": "Sliding-Window",
     "difficulty": "Medium",

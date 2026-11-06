@@ -216,6 +216,12 @@
     "source": "neetcode-catalog-title-match",
     "title": "Container With Most Water"
   },
+  "maximum-ascending-subarray-sum": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Maximum Ascending Subarray Sum"
+  },
   "maximum-difference-between-even-and-odd-frequency-i": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

@@ -45,6 +45,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Check if Array Is Sorted and Rotated"
   },
+  "circular-sentence": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Circular Sentence"
+  },
   "concatenation-of-array": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

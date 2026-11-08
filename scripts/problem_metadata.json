@@ -113,6 +113,12 @@
     "source": "neetcode-official-catalog",
     "title": "Find the Difference of Two Arrays"
   },
+  "find-the-winner-of-the-circular-game": {
+    "category": "Queue",
+    "difficulty": "Medium",
+    "source": "neetcode-page-structured-data",
+    "title": "Find the Winner of the Circular Game"
+  },
   "find-words-that-can-be-formed-by-characters": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

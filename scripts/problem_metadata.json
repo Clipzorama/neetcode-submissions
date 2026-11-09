@@ -113,6 +113,12 @@
     "source": "neetcode-official-catalog",
     "title": "Find the Difference of Two Arrays"
   },
+  "find-the-index-of-the-first-occurrence-in-a-string": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Find The Index of The First Occurrence in a String"
+  },
   "find-the-winner-of-the-circular-game": {
     "category": "Queue",
     "difficulty": "Medium",

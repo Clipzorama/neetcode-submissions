@@ -182,6 +182,12 @@
     "source": "neetcode-official-catalog",
     "title": "Isomorphic Strings"
   },
+  "largest-3-same-digit-number-in-string": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Largest 3-Same-Digit Number in String"
+  },
   "lemonade-change": {
     "category": "Greedy",
     "difficulty": "Easy",

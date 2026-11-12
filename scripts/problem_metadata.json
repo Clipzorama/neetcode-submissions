@@ -149,6 +149,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Height Checker"
   },
+  "implement-stack-using-queues": {
+    "category": "Stack",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Implement Stack Using Queues"
+  },
   "intersection-of-two-arrays": {
     "category": "Two-Pointers",
     "difficulty": "Easy",

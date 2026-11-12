@@ -500,6 +500,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "water-bottles": {
+    "category": "Math-and-Geometry",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Water Bottles"
+  },
   "word-pattern": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

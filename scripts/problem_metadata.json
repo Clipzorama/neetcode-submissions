@@ -240,6 +240,11 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "make-the-string-great": {
+    "category": "Stack",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
   "max-consecutive-ones": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

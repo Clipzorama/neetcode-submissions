@@ -408,6 +408,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "removing-stars-from-a-string": {
+    "category": "Stack",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Removing Stars From a String"
+  },
   "replace-elements-with-greatest-element-on-right-side": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

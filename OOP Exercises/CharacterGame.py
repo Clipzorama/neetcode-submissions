@@ -14,6 +14,7 @@ class Character:
         self.attack_penalty = 0
 
 
+    # before each attack, this method is called to see the status of the characters (if they're dead or not)
     def can_attack(self, target):
         if not self.is_alive():
             print(f"{self.name} is dead and cannot attack!")
@@ -39,9 +40,6 @@ class Character:
 
         print(f"{self.name} just attacked {target.name} for {damage} damage!")
 
-
-
-
         self.attack_penalty = 0
 
     def heal(self, amount):
@@ -59,6 +57,7 @@ class Character:
             print(f"{self.name} has been healed: {self.health} / {self.max_health} HP.")
 
     def is_alive(self):
+
         if self.health > 0:
             print(f"{self.name} is alive with {self.health} / {self.max_health} HP.")
             return True
@@ -147,6 +146,8 @@ class Assassin(Character):
         super().__init__(name, health, max_health, attack_power, defense, level, attack_penalty)
 
     def critical_strike(self, target):
+
+
 
         if not self.can_attack(target):
             return

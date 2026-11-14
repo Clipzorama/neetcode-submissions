@@ -10,6 +10,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "assign-cookies": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Assign Cookies"
+  },
   "baseball-game": {
     "category": "Stack",
     "difficulty": "Easy",

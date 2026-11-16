@@ -223,6 +223,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "longest-palindrome": {
+    "category": "Greedy",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Longest Palindrome"
+  },
   "longest-repeating-substring-with-replacement": {
     "category": "Sliding-Window",
     "difficulty": "Medium",

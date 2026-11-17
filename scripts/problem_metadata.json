@@ -10,6 +10,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "assign-cookies": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Assign Cookies"
+  },
   "baseball-game": {
     "category": "Stack",
     "difficulty": "Easy",
@@ -73,6 +79,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "divide-array-into-equal-pairs": {
+    "category": "Bit-Manipulation",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Divide Array Into Equal Pairs"
+  },
   "duplicate-integer": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",
@@ -88,6 +100,12 @@
     "category": "Stack",
     "difficulty": "Easy",
     "source": "existing-organization"
+  },
+  "find-common-characters": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Find Common Characters"
   },
   "find-lucky-integer-in-an-array": {
     "category": "Arrays-and-Hashing",
@@ -216,6 +234,12 @@
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",
     "source": "existing-organization"
+  },
+  "longest-palindrome": {
+    "category": "Greedy",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Longest Palindrome"
   },
   "longest-repeating-substring-with-replacement": {
     "category": "Sliding-Window",

@@ -79,6 +79,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "divide-array-into-equal-pairs": {
+    "category": "Bit-Manipulation",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Divide Array Into Equal Pairs"
+  },
   "duplicate-integer": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

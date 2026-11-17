@@ -3,15 +3,9 @@
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        res = len(nums) + 1
+        res = len(nums)
 
-        for i, num in enumerate(nums, start=1):
-            res ^= i
-            res ^= num
+        for i in range(len(nums)):
+            res += (i - nums[i])
         
         return res
-
-
-
-result = Solution()
-print(result.missingNumber([1, 2, 3, 5, 6]))

@@ -101,6 +101,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "find-common-characters": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Find Common Characters"
+  },
   "find-lucky-integer-in-an-array": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

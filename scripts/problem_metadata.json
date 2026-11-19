@@ -466,6 +466,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "set-mismatch": {
+    "category": "Bit-Manipulation",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Set Mismatch"
+  },
   "sort-colors": {
     "categories": [
       "Arrays-and-Hashing",

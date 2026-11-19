@@ -520,6 +520,12 @@
     "difficulty": "Medium",
     "source": "existing-organization"
   },
+  "trapping-rain-water": {
+    "category": "Two-Pointers",
+    "difficulty": "Hard",
+    "source": "neetcode-official-catalog",
+    "title": "Trapping Rain Water"
+  },
   "two-integer-sum": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

@@ -433,6 +433,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Ransom Note"
   },
+  "redistribute-characters-to-make-all-strings-equal": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Redistribute Characters to Make All Strings Equal"
+  },
   "remove-element": {
     "category": "Two-Pointers",
     "difficulty": "Easy",

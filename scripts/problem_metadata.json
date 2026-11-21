@@ -85,6 +85,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "destination-city": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Destination City"
+  },
   "divide-array-into-equal-pairs": {
     "category": "Bit-Manipulation",
     "difficulty": "Easy",

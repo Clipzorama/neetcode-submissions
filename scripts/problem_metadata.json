@@ -74,6 +74,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Count the Number of Consistent Strings"
   },
+  "crawler-log-folder": {
+    "category": "Stack",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Crawler Log Folder"
+  },
   "daily-temperatures": {
     "category": "Stack",
     "difficulty": "Medium",

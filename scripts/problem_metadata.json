@@ -143,6 +143,12 @@
     "source": "neetcode-official-catalog",
     "title": "Find Pivot Index"
   },
+  "find-the-difference": {
+    "category": "Bit-Manipulation",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Find the Difference"
+  },
   "find-the-difference-of-two-arrays": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

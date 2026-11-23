@@ -2,6 +2,8 @@ import random
 
 class Character:
 
+    # potentially we can make a non-public atttribute for self.health --> self._health so it cant be modified by everyone
+
     def __init__(self, name, health, max_health, attack_power, defense, level=1, attack_penalty=0):
         self.name = name
         self.health = health
@@ -99,7 +101,6 @@ class Warrior(Character):
 
 
 
-
 # Mage Child Class
 class Mage(Character):
     def __init__(self, name, health, max_health, attack_power, defense, mana, max_mana, level=1, attack_penalty=0):
@@ -108,7 +109,9 @@ class Mage(Character):
         self.max_mana = max_mana
 
     # Its the same as the other ones but the only difference is that i am adding mana inside of their stats as well
+    # prime example of POLYMORPHISM
     def display_stats(self):
+        # method overriding = polymorphism
         super().display_stats()
         print(f"Mana: {self.mana}")
         print(f"Max Mana: {self.max_mana}")
@@ -146,8 +149,6 @@ class Assassin(Character):
         super().__init__(name, health, max_health, attack_power, defense, level, attack_penalty)
 
     def critical_strike(self, target):
-
-
 
         if not self.can_attack(target):
             return

@@ -224,6 +224,12 @@
     "source": "neetcode-official-catalog",
     "title": "Isomorphic Strings"
   },
+  "kth-distinct-string-in-an-array": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Kth Distinct String in an Array"
+  },
   "largest-3-same-digit-number-in-string": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

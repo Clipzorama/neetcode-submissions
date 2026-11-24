@@ -119,6 +119,12 @@
     "difficulty": "Easy",
     "source": "existing-organization"
   },
+  "find-all-anagrams-in-a-string": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Medium",
+    "source": "neetcode-official-catalog",
+    "title": "Find All Anagrams in a String"
+  },
   "find-common-characters": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

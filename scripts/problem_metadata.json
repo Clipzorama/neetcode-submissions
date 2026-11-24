@@ -16,6 +16,11 @@
     "source": "neetcode-page-structured-data",
     "title": "Assign Cookies"
   },
+  "backspace-string-compare": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "existing-organization"
+  },
   "baseball-game": {
     "category": "Stack",
     "difficulty": "Easy",

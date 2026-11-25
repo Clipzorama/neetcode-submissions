@@ -136,6 +136,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Find Common Characters"
   },
+  "find-first-palindromic-string-in-the-array": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Find First Palindromic String in the Array"
+  },
   "find-lucky-integer-in-an-array": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

@@ -364,6 +364,12 @@
     "source": "neetcode-official-catalog",
     "title": "Merge Sorted Array"
   },
+  "merge-strings-alternately": {
+    "category": "Two-Pointers",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Merge Strings Alternately"
+  },
   "minimum-recolors-to-get-k-consecutive-black-blocks": {
     "category": "Sliding-Window",
     "difficulty": "Easy",

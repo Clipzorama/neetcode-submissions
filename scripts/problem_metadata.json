@@ -508,6 +508,12 @@
     "source": "neetcode-official-catalog",
     "title": "Reverse String"
   },
+  "roman-to-integer": {
+    "category": "Math-and-Geometry",
+    "difficulty": "Easy",
+    "source": "neetcode-official-catalog",
+    "title": "Roman to Integer"
+  },
   "rotate-array": {
     "category": "Two-Pointers",
     "difficulty": "Medium",

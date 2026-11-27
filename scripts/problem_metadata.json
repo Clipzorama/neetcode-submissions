@@ -265,6 +265,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Largest 3-Same-Digit Number in String"
   },
+  "largest-substring-between-two-equal-characters": {
+    "category": "Greedy",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Largest Substring Between Two Equal Characters"
+  },
   "lemonade-change": {
     "category": "Greedy",
     "difficulty": "Easy",

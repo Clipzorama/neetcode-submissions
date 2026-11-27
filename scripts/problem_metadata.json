@@ -56,6 +56,12 @@
     "source": "neetcode-page-structured-data",
     "title": "Check if Array Is Sorted and Rotated"
   },
+  "check-if-two-string-arrays-are-equivalent": {
+    "category": "Arrays-and-Hashing",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Check If Two String Arrays are Equivalent"
+  },
   "circular-sentence": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Easy",

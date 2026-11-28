@@ -604,6 +604,12 @@
     "source": "neetcode-catalog-title-match",
     "title": "3Sum"
   },
+  "time-needed-to-buy-tickets": {
+    "category": "Queue",
+    "difficulty": "Easy",
+    "source": "neetcode-page-structured-data",
+    "title": "Time Needed to Buy Tickets"
+  },
   "top-k-elements-in-list": {
     "category": "Arrays-and-Hashing",
     "difficulty": "Medium",
